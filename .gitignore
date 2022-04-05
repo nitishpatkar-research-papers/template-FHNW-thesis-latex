@@ -1,0 +1,34 @@
+.DS_Store
+scg.bib
+
+*.aux
+*.blg
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+EMSE_RE_Tools_Survey.run.xml
+
+# IDE specific
+.vscode/
+
+# Build tool auxiliary files:
+*.fdb_latexmk
+*.synctex
+*.synctex.gz
+*.pdfsync
+
+# these rules might exclude image files for figures etc.
+*.ps
+*.eps
+_*
+fhnw_ht_eit_latex_template.pdf
+_*
+*.aux

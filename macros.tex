@@ -1,0 +1,69 @@
+% Topic
+\newcommand\topic[1]{\vspace{0.7em}
+\noindent\textit{#1.}}
+
+
+% ================================ %
+% ======== BOXES AROUND TEXT ===== %
+% ================================ %
+\definecolor{mycolor}{rgb}{0.122, 0.435, 0.698}
+\newmdenv[innerlinewidth=0.5pt, roundcorner=4pt,linecolor=mycolor,innerleftmargin=6pt,
+innerrightmargin=6pt,innertopmargin=6pt,innerbottommargin=6pt]{mybox}
+\newcommand{\finding}[1]{\begin{mybox}\emph{#1}\end{mybox}}
+
+
+
+
+% Toggle: Put edit comments in a really ugly standout display, toggle to show or hide comments
+\newboolean{showcomments}
+\setboolean{showcomments}{true}
+\ifthenelse{\boolean{showcomments}}
+{\newcommand{\nbc}[3]{
+{\colorbox{#3}{\bfseries\sffamily\scriptsize\textcolor{white}{#1}}}
+{\textcolor{#3}{\sffamily\small$\blacktriangleright$\textit{#2}$\blacktriangleleft$}}}
+\newcommand{\version}{\emph{\scriptsize\id}}}
+{\newcommand{\nbc}[3]{}
+\newcommand{\version}{}}
+
+% Toggle: Mark-up macros for proof-reading, toggle to show or hide macros
+\newboolean{showedits}
+\setboolean{showedits}{true}
+\ifthenelse{\boolean{showedits}}
+{
+\newcommand{\meh}[1]{\textcolor{red}{\uwave{#1}}} % please rephrase
+\newcommand{\ins}[1]{\textcolor{blue}{\uline{#1}}} % please insert
+\newcommand{\del}[1]{\textcolor{red}{\sout{#1}}} % please delete
+\newcommand{\chg}[2]{\textcolor{red}{\sout{#1}}{\ra}\textcolor{blue}{\uline{#2}}} % please change
+}{
+\newcommand{\meh}[1]{#1} % please rephrase
+\newcommand{\ins}[1]{#1} % please insert
+\newcommand{\del}[1]{} % please delete
+\newcommand{\chg}[2]{#2}
+\newcommand{\nbe}[3]{}
+}
+
+% ===========================================
+
+% Review macros (personalized)
+\newcommand\on[1]{\nbc{ON}{#1}{olive}}
+\newcommand\np[1]{\nbc{NP}{#1}{purple}}
+
+% Review macros (generic)
+\newcommand\fix[1]{\nbc{FIX}{#1}{orange}}
+%\newcommand\todo[1]{\nbc{TO DO}{#1}{orange}}
+\newcommand\msg[1]{\nbc{MESSAGE}{#1}{brown}}
+\newcommand\fw[1]{\nbc{FUTUREWORK}{#1}{black}}
+\newcommand\remind[1]{\nbc{REMINDER}{#1}{gray}}
+\newcommand\review[1]{\nbc{TO REVIEW}{#1}{orange}}
+\newcommand\ANS[1]{\nbe{Response}{#1}{teal}}
+\newcommand\rA[1]{\nbe{Reviewer 1}{#1}{cyan}}
+\newcommand\rB[1]{\nbe{Reviewer 2}{#1}{olive}}
+\newcommand\rC[1]{\nbe{Reviewer 3}{#1}{magenta}}
+\newcommand\rD[1]{\nbe{Reviewer 4}{#1}{orange}}
+
+% Text shortcuts
+\newcommand{\ie}{\emph{i.e.},\xspace}
+\newcommand{\eg}{\emph{e.g.},\xspace}
+\newcommand{\etal}{\emph{et al.}\xspace}
+\newcommand{\etc}{\emph{etc.}\xspace}
+\newcommand{\RQ}[1]{RQ$_{#1}$}
