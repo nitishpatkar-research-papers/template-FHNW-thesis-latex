@@ -27,13 +27,17 @@ innerrightmargin=6pt,innertopmargin=6pt,innerbottommargin=6pt]{mybox}
 
 % Toggle: Mark-up macros for proof-reading, toggle to show or hide macros
 \newboolean{showedits}
-\setboolean{showedits}{true}
+\setboolean{showedits}{true} % toggle to show or hide edits
 \ifthenelse{\boolean{showedits}}
 {
 \newcommand{\meh}[1]{\textcolor{red}{\uwave{#1}}} % please rephrase
 \newcommand{\ins}[1]{\textcolor{blue}{\uline{#1}}} % please insert
 \newcommand{\del}[1]{\textcolor{red}{\sout{#1}}} % please delete
-\newcommand{\chg}[2]{\textcolor{red}{\sout{#1}}{\ra}\textcolor{blue}{\uline{#2}}} % please change
+\newcommand{\chg}[2]{\textcolor{orange}{\uline{#2}}} % please change
+%	\newcommand{\chg}[2]{\textcolor{red}{\sout{#1}}{\ra}\textcolor{blue}{\uline{#2}}} % please change
+\newcommand{\nbe}[3]{
+    {\colorbox{#3}{\bfseries\sffamily\scriptsize\textcolor{white}{#1}}}
+    {\textcolor{#3}{\sf\small$\blacktriangleright$\textit{#2}$\blacktriangleleft$}}}
 }{
 \newcommand{\meh}[1]{#1} % please rephrase
 \newcommand{\ins}[1]{#1} % please insert
@@ -45,8 +49,9 @@ innerrightmargin=6pt,innertopmargin=6pt,innerbottommargin=6pt]{mybox}
 % ===========================================
 
 % Review macros (personalized)
-\newcommand\on[1]{\nbc{ON}{#1}{olive}}
+\newcommand\vg[1]{\nbc{VG}{#1}{olive}}
 \newcommand\np[1]{\nbc{NP}{#1}{purple}}
+\newcommand\cl[1]{\nbc{CL}{#1}{gray}}
 
 % Review macros (generic)
 \newcommand\fix[1]{\nbc{FIX}{#1}{orange}}
